@@ -1,6 +1,6 @@
 import React from "react";
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import useInput from '../hooks/useInput';
 import { loginAction } from "../reducers/user";
 import { UserOutlined } from '@ant-design/icons';
@@ -21,6 +21,8 @@ const LoginForm = () => {
     const dispatch = useDispatch();
     const [id, onChangeId] = useInput('');
     const [password, onChangePassword] = useInput('');
+
+    const { isLoggedin } = useSelector((state) => state.user);
     // const [id, setId] = useState('');
     // const [password, setPassword] = useState('');
 
@@ -35,7 +37,8 @@ const LoginForm = () => {
     const onSubmitForm = useCallback(() => {
         console.log(id, password);
         dispatch(loginAction({id, password}));
-    }, [])
+        console.log(isLoggedin)
+    }, [id, password]);
 
     return (
         <FormWrapper onFinish={onSubmitForm}>
