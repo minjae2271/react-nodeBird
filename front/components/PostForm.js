@@ -1,8 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addPostAction } from '../reducers/post';
+
 import { Form, Input, Button } from 'antd';
 
 const PostForm = () => {
+    const dispatch = useDispatch();
+
     const { imagePaths } = useSelector((state) => state.post)
 
     const [postText, setPostText] = useState('');
@@ -12,7 +16,7 @@ const PostForm = () => {
     }, []);
 
     const onSubmitPostForm = useCallback(() => {
-
+        dispatch(addPostAction())
     }, []);
 
     return (

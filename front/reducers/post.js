@@ -1,5 +1,4 @@
 export const initialState = {
-    mainPosts: [{
         mainPosts: [{
             id: 1,
             User: {
@@ -24,16 +23,18 @@ export const initialState = {
                     nickname: 'agu',
                 },
                 content: 'hello~',
-            }]
+            }],
+            imagePaths: [],
+            postAdded: false,
         }],
-        imagePaths: [],
-        postAdded: false,
-    }]
+
 }
 
 const ADD_POST = 'ADD_POST';
-export const addPost = {
-    type: ADD_POST,
+export const addPostAction = () => {
+    return {
+        type: ADD_POST,
+    }
 }
 
 const dummyPost = {

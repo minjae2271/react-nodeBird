@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next"
   },
   "author": "",
   "license": "ISC",
